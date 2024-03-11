@@ -41,11 +41,9 @@ def top_section():
 
    with col[5]:
       # sl.text('Log in')
-      login_page_url = 'https://skiing-time-login.streamlit.app/'
+      login_page_url = 'https://skiing-time-log-in.streamlit.app/'
       sl.markdown(f'[Log in]({login_page_url})')
 
-   
-   pass
 
 # Title section
 def title_section():
@@ -100,41 +98,43 @@ def goto_use_section():
 
    ''', unsafe_allow_html=True)
 
-   if_goto_login = sl.button('Try Skiing Time Now')
+   # if_goto_login = sl.button('Try Skiing Time Now')
 
-   if if_goto_login:
+   # if if_goto_login:
 
-      information = f'nothing'
+   #    information = f'nothing'
 
-      subprocess.Popen(["streamlit", 
-                        "run", 
-                        "login_page.py", 
-                        "information", 
-                        f"{information}"])
-   
+   #    subprocess.Popen(["streamlit", 
+   #                      "run", 
+   #                      "login_page.py", 
+   #                      "information", 
+   #                      f"{information}"])
 
+
+   login_page_url = 'https://skiing-time-log-in.streamlit.app/'
+   sl.markdown(f'[Log in]({login_page_url})')
 
 
 # Demonstration section
-def demonstration_section():
+# def demonstration_section():
 
-   sl.markdown('''
+#    sl.markdown('''
                
-   <br>
+#    <br>
                
-   <style>
+#    <style>
 
-   .stVideo {
-      border-radius: 10px;
-      autoplay: true;
-   }
+#    .stVideo {
+#       border-radius: 10px;
+#       autoplay: true;
+#    }
 
-   </style>
+#    </style>
 
-   ''', unsafe_allow_html=True)
+#    ''', unsafe_allow_html=True)
 
-   demonstration_video_path = 'home_page_material/demonstration_video.mov'
-   sl.video(demonstration_video_path)
+#    demonstration_video_path = 'home_page_material/demonstration_video.mov'
+#    sl.video(demonstration_video_path)
 
 
 def information():
@@ -220,7 +220,7 @@ def home_page():
    top_section()
    title_section()
    goto_use_section()
-   demonstration_section()
+   # demonstration_section()
    information()
    bottom_section()
 
