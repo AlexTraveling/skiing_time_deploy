@@ -1,0 +1,5 @@
+mysql_connector_repackaged==0.3.1
+Pillow==10.2.0
+streamlit==1.31.1
+torch==2.2.1
+transformers==4.38.1
