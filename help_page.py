@@ -1,7 +1,7 @@
 import streamlit as sl
 import streamlit.components.v1 as com
 
-from home_page import top_section, bottom_section
+# from home_page import top_section, bottom_section
 
 
 # Title section
@@ -104,7 +104,7 @@ def help_page():
    #    page_icon=":smile:"
    # )
 
-   top_section()
+   # top_section()
 
    title_section()
    step_1()
@@ -113,7 +113,7 @@ def help_page():
    sl.markdown('---')
    step_3()
 
-   bottom_section()
+   # bottom_section()
 
 
 if __name__ == '__main__':
