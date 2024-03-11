@@ -28,15 +28,22 @@ def top_section():
       sl.image(logo_path)
 
    with col[2]:
-      sl.text('Help')
+      # sl.text('Help')
       # sl.button('Help')
+      help_page_url = 'https://skiing-time-assist.streamlit.app/'
+      sl.markdown(f'[Help]({help_page_url})')
    
    with col[3]:
-      sl.text('About us')
+      # sl.text('About us')
       # sl.button('Aboud us')
+      about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
+      sl.markdown(f'[About us]({about_us_page_url})')
 
    with col[5]:
-      sl.text('Log in')
+      # sl.text('Log in')
+      login_page_url = 'https://skiing-time-login.streamlit.app/'
+      sl.markdown(f'[Log in]({login_page_url})')
+
    
    pass
 
