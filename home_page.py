@@ -211,8 +211,6 @@ def bottom_section():
 
    ''', unsafe_allow_html=True)
 
-   pass
-
 
 # Page structure
 def home_page():
