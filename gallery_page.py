@@ -2,6 +2,7 @@ import streamlit as sl
 from PIL import Image
 # import sys
 # import subprocess
+import openpyxl
 
 
 # Sidebar Section
@@ -80,7 +81,26 @@ def title_section(date, resort):
    sl.markdown('<h1>Gallery of Skiing Photos</h1>', unsafe_allow_html=True)
 
    pass
-   
+
+
+# Full List
+def open_excel():
+
+   path = 'image_catalog_database.xlsx'
+   book = openpyxl.load_workbook(path)
+   sheet = book['Sheet1']
+   rows = sheet.iter_rows(values_only=True)
+   print(rows)
+
+   save = []
+   for r in rows:
+      save.append(r)
+
+   save = save[1:]
+   print(save)
+
+   return save
+
 
 # Select Section
 def resort_adjust(resort):
@@ -96,12 +116,21 @@ def resort_adjust(resort):
    return None
 
 
-def select_section(date, resort):
+def select_section(date, resort, full_list):
 
    date = str(date)
    resort_short_name = resort_adjust(resort)
+
+   # if use MySQL as database
    # image_catalog_list = select_image_catalog(date, resort_short_name, only_id=True)
-   image_catalog_list = [1, 2, 3]
+
+   # image_catalog_list = [1, 2, 3]
+
+   # if use Excel as database
+   image_catalog_list = []
+   for single in full_list:
+      if single[1] == date and single[2] == resort_short_name:
+         image_catalog_list.append(single[0])
 
    image_sum = len(image_catalog_list)
 
@@ -191,10 +220,9 @@ def gallery_page():
 
    date, resort = sidebar_section(username)
    title_section(date, resort)
-   image_catalog_list = select_section(date, resort)
+   full_list = open_excel()
+   image_catalog_list = select_section(date, resort, full_list)
    show_section(image_catalog_list)
-
-   # bottom_section()
 
 
 if __name__ == '__main__':
