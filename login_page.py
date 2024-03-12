@@ -1,9 +1,8 @@
 import streamlit as sl
 import time
-import subprocess
-# import pandas as pd
+# import subprocess
 import openpyxl
-import webbrowser
+# import webbrowser
 
 # if use MySQL as database
 # from userDatabase import get_user
@@ -74,10 +73,14 @@ def login_section():
                                type='password')
 
       if sl.form_submit_button('Login'):
+         
          if user_account(username, password):
             sl.success('Login successfully')
-            time.sleep(2)
+            time.sleep(0.5)
+            gallery_page_url = 'https://skiing-time-gallery.streamlit.app/'
+            sl.markdown(f'[Hello {username}, you may click here to use Skiing Time now]({gallery_page_url})')
             return True, username
+         
          else:
             sl.warning('Wrong username or password')
    
@@ -108,14 +111,13 @@ def login_page():
 
    title_section()
    if_goto_gallery_page, username = login_section()
+   
+   # if if_goto_gallery_page == True:
+   #    goto_gallery_page_section()
+
    goto_sign_up_section()
-
-   if if_goto_gallery_page == True:
-
-      gallery_page_url = 'https://skiing-time-gallery.streamlit.app/'
-      webbrowser.open(gallery_page_url)
-
       
+
 if __name__ == '__main__':
 
    login_page()
