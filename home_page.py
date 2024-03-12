@@ -1,8 +1,8 @@
 import streamlit as sl
-import subprocess
+# import subprocess
 
 
-# Top section
+# Top Section
 def top_section():
 
    sl.markdown('''     
@@ -20,32 +20,47 @@ def top_section():
 
    ''', unsafe_allow_html=True)
 
-   col = sl.columns([1.6, 0.4, 0.8, 0.8, 2, 1])
+   # col = sl.columns([1.6, 0.4, 0.8, 0.8, 2, 1])
 
-   with col[0]:
+   # with col[0]:
+   #    # sl.text('SKIING TIME')
+   #    logo_path = 'home_page_material/skiing_time_logo.png'
+   #    sl.image(logo_path)
+
+   # with col[2]:
+   #    help_page_url = 'https://skiing-time-assist.streamlit.app/'
+   #    sl.markdown(f'[Help]({help_page_url})')
+   
+   # with col[3]:
+   #    about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
+   #    sl.markdown(f'[About us]({about_us_page_url})')
+
+   # with col[5]:
+   #    login_page_url = 'https://skiing-time-log-in.streamlit.app/'
+   #    sl.markdown(f'[Log in]({login_page_url})')
+
+   column = sl.columns([1, 1, 1, 2, 2])
+
+   with column[0]:
+      login_page_url = 'https://skiing-time-log-in.streamlit.app/'
+      sl.markdown(f'[Log in]({login_page_url})')
+
+   with column[1]:
+      help_page_url = 'https://skiing-time-assist.streamlit.app/'
+      sl.markdown(f'[Help]({help_page_url})')
+   
+   with column[2]:
+      about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
+      sl.markdown(f'[About us]({about_us_page_url})')
+   
+   with column[4]:
       # sl.text('SKIING TIME')
       logo_path = 'home_page_material/skiing_time_logo.png'
       sl.image(logo_path)
 
-   with col[2]:
-      # sl.text('Help')
-      # sl.button('Help')
-      help_page_url = 'https://skiing-time-assist.streamlit.app/'
-      sl.markdown(f'[Help]({help_page_url})')
-   
-   with col[3]:
-      # sl.text('About us')
-      # sl.button('Aboud us')
-      about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
-      sl.markdown(f'[About us]({about_us_page_url})')
-
-   with col[5]:
-      # sl.text('Log in')
-      login_page_url = 'https://skiing-time-log-in.streamlit.app/'
-      sl.markdown(f'[Log in]({login_page_url})')
 
 
-# Title section
+# Title Section
 def title_section():
 
    sl.markdown('''
@@ -79,7 +94,7 @@ def title_section():
    ''', unsafe_allow_html=True)
 
 
-# Goto use section
+# Goto Use Section
 def goto_use_section():
 
    sl.markdown('''
@@ -110,31 +125,106 @@ def goto_use_section():
    #                      "information", 
    #                      f"{information}"])
 
-
    login_page_url = 'https://skiing-time-log-in.streamlit.app/'
    sl.markdown(f'[Log in]({login_page_url})')
 
 
-# Demonstration section
-# def demonstration_section():
+# Demonstration Section
+def demonstration_section():
 
-#    sl.markdown('''
+   sl.markdown('''
                
-#    <br>
+   <br>
                
-#    <style>
+   <style>
 
-#    .stVideo {
-#       border-radius: 10px;
-#       autoplay: true;
-#    }
+   .stVideo {
+      border-radius: 10px;
+      autoplay: true;
+   }
 
-#    </style>
+   </style>
 
-#    ''', unsafe_allow_html=True)
+   ''', unsafe_allow_html=True)
 
-#    demonstration_video_path = 'home_page_material/demonstration_video.mov'
-#    sl.video(demonstration_video_path)
+   demonstration_video_path = 'home_page_material/small_demo_vlog.m4v'
+   sl.video(demonstration_video_path)
+
+
+# Help Section
+def help_section_title():
+
+   sl.markdown('''
+
+   <br>
+
+   <h1 class="title">
+      Easier than Easier to Use
+   </h1>
+
+   <br>
+
+   <p class="describe">
+      Just three steps to use Ai Searching of Skiing Time
+   </p>
+
+   <br>
+               
+   <style>
+
+   .title {
+      text-align: center;
+   }
+   .describe {
+      text-align: center;
+      color: grey;
+   }
+
+   </style>
+
+   ''', unsafe_allow_html=True)
+   
+
+# Help 1: Time and resort
+def help_section_1():
+
+   column = sl.columns([2, 3])
+   
+   with column[0]:
+      sl.title('Choose Date and Resort')
+      sl.write('Enjoy all photos after choosing specific date and resort in Gallery Page. Then you may click button of Go Ai Searching to use it.')
+
+   with column[1]:
+      sl.image('home_page_material/gallery.png')
+
+
+# Help 2: Upload one photo
+def help_section_2():
+
+   column = sl.columns([2, 3])
+   
+   with column[0]:
+      sl.title('Upload One Old Photo')
+      sl.write('System can analyze which part of photos belong to you automatically by the marvelous CLIP deep learning model.')
+      # sl.caption('System can analyze which part of photos belong to you automatically by the CLIP deep learning model.')
+
+
+   with column[1]:
+      sl.image('home_page_material/upload.png')
+
+
+# Help 3: Select and download photo after AI searching
+def help_section_3():
+
+   column = sl.columns([2, 3])
+   
+   with column[0]:
+      sl.title('Download Your Checked Photos')
+      sl.write('Take the further selection after AI searching and download all photos.')
+      sl.write('You may also use the Threshold Slider to adjust threshold inside CLIP deep learning model. Upper brings better accuracy and lower brings better completness.')
+
+   with column[1]:
+      sl.image('home_page_material/download.png')
 
 
 def information():
@@ -212,14 +302,27 @@ def bottom_section():
    ''', unsafe_allow_html=True)
 
 
-# Page structure
+# Page Structure
 def home_page():
 
+   page_name = 'Home · Skiing Time'
+   sl.set_page_config(page_name)
+
    top_section()
+
    title_section()
-   goto_use_section()
-   # demonstration_section()
+   # goto_use_section()
+   demonstration_section()
+
+   sl.markdown('---')
+
+   help_section_title()
+   help_section_1()
+   help_section_2()
+   help_section_3()
+
    information()
+
    bottom_section()
 
 
