@@ -3,16 +3,13 @@ import time
 import subprocess
 # import pandas as pd
 import openpyxl
+import webbrowser
 
 # if use MySQL as database
 # from userDatabase import get_user
 
 
 def get_user_from_excel():
-
-   # save = [('Alex', '123456'),
-   #         ('Bob', 'iambob'),
-   #         ('Swing', 'swing')]
 
    path = 'user_database.xlsx'
    book = openpyxl.load_workbook(path)
@@ -49,6 +46,7 @@ def user_account(username, password):
       return False
 
 
+# Title Section
 def title_section():
 
    sl.markdown('''
@@ -63,13 +61,11 @@ def title_section():
    <style>
    ''', unsafe_allow_html=True)
 
-   sl.markdown('<h1 class="title">Log in</h1>',
-               unsafe_allow_html=True)
-   
-   sl.markdown('<p class="direction">Find your amazing photos in amazing speed</p>',
-               unsafe_allow_html=True)
+   sl.markdown('<h1 class="title">Log in</h1>', unsafe_allow_html=True)
+   sl.markdown('<p class="direction">Username and password are required to log in Skiing Time</p>', unsafe_allow_html=True)
 
 
+# Information Input Section
 def login_section():
 
    with sl.form('login'):
@@ -88,9 +84,8 @@ def login_section():
    return False, None
 
 
+# Go to Sign up Section
 def goto_sign_up_section():
-
-   # st-emotion-cache-1umgz6k ef3psqc12
 
    sl.markdown('''
    <style>
@@ -104,40 +99,23 @@ def goto_sign_up_section():
    with col2:
       sign_up_button = sl.button('Do not have a account ?  Sign up now', use_container_width=100)
 
-   if sign_up_button:
-      sl.warning('ready to sign up...')
-      time.sleep(0.5)
 
-      subprocess.Popen(["streamlit", 
-                     "run", 
-                     "sign_up_page.py", 
-                     "none", 
-                     f"{404}"])
+# Log in Page
+def login_page():
 
+   page_name = 'Log in · Skiing Time'
+   sl.set_page_config(page_name)
 
+   title_section()
+   if_goto_gallery_page, username = login_section()
+   goto_sign_up_section()
 
-# Skiing Time
+   if if_goto_gallery_page == True:
+
+      gallery_page_url = 'https://skiing-time-gallery.streamlit.app/'
+      webbrowser.open(gallery_page_url)
+
       
 if __name__ == '__main__':
 
-   title_section()
-
-   if_goto_upload_page, username = login_section()
-
-   goto_sign_up_section()
-
-   if if_goto_upload_page == True:
-
-      subprocess.Popen(["streamlit", 
-                        "run", 
-                        "gallery_page.py", 
-                        "username", 
-                        f"{username}"])
-
-      # subprocess.Popen(["streamlit", 
-      #                   "run", 
-      #                   "upload_page.py", 
-      #                   "username", 
-      #                   f"{username}"])
-
-      # pass
+   login_page()
