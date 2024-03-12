@@ -1,4 +1,4 @@
-# skiing_time_deploy
+# Skiing Time app (deploy version)
 
 A streamlit app offering Ai searching function which can extract the skiing photos belong to you from photo gallery containing thousands of skiing photos.
 
