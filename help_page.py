@@ -99,12 +99,9 @@ def step_3():
 # Help page
 def help_page():
 
-   # sl.set_page_config(
-   #    page_title="help",    #页面标题
-   #    page_icon=":smile:"
-   # )
-
-   # top_section()
+   page_name = 'Help · Skiing Time'
+   page_icon = '❄️'
+   sl.set_page_config(page_name, page_icon)
 
    title_section()
    step_1()
@@ -112,8 +109,6 @@ def help_page():
    step_2()
    sl.markdown('---')
    step_3()
-
-   # bottom_section()
 
 
 if __name__ == '__main__':
