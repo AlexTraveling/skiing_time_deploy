@@ -1,5 +1,4 @@
 import streamlit as sl
-# import subprocess
 
 
 # Top Section
@@ -20,44 +19,27 @@ def top_section():
 
    ''', unsafe_allow_html=True)
 
-   # col = sl.columns([1.6, 0.4, 0.8, 0.8, 2, 1])
-
-   # with col[0]:
-   #    # sl.text('SKIING TIME')
-   #    logo_path = 'home_page_material/skiing_time_logo.png'
-   #    sl.image(logo_path)
-
-   # with col[2]:
-   #    help_page_url = 'https://skiing-time-assist.streamlit.app/'
-   #    sl.markdown(f'[Help]({help_page_url})')
-   
-   # with col[3]:
-   #    about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
-   #    sl.markdown(f'[About us]({about_us_page_url})')
-
-   # with col[5]:
-   #    login_page_url = 'https://skiing-time-log-in.streamlit.app/'
-   #    sl.markdown(f'[Log in]({login_page_url})')
-
-   column = sl.columns([1, 1, 1, 2, 2])
+   column = sl.columns([2, 1, 1, 1, 1, 1])
 
    with column[0]:
+      logo_path = 'home_page_material/skiing_time_logo_2.png'
+      sl.image(logo_path)
+   
+   with column[2]:
       login_page_url = 'https://skiing-time-log-in.streamlit.app/'
       sl.markdown(f'[Log in]({login_page_url})')
 
-   with column[1]:
+   with column[3]:
       help_page_url = 'https://skiing-time-assist.streamlit.app/'
       sl.markdown(f'[Help]({help_page_url})')
    
-   with column[2]:
+   with column[4]:
       about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
       sl.markdown(f'[About us]({about_us_page_url})')
    
-   with column[4]:
-      # sl.text('SKIING TIME')
-      logo_path = 'home_page_material/skiing_time_logo.png'
-      sl.image(logo_path)
-
+   with column[5]:
+      github_url = 'https://github.com/AlexTraveling/skiing_time_local'
+      sl.markdown(f'[GitHub]({github_url})')
 
 
 # Title Section
@@ -113,18 +95,6 @@ def goto_use_section():
 
    ''', unsafe_allow_html=True)
 
-   # if_goto_login = sl.button('Try Skiing Time Now')
-
-   # if if_goto_login:
-
-   #    information = f'nothing'
-
-   #    subprocess.Popen(["streamlit", 
-   #                      "run", 
-   #                      "login_page.py", 
-   #                      "information", 
-   #                      f"{information}"])
-
    login_page_url = 'https://skiing-time-log-in.streamlit.app/'
    sl.markdown(f'[Log in]({login_page_url})')
 
@@ -151,12 +121,50 @@ def demonstration_section():
    sl.video(demonstration_video_path)
 
 
+# Marvel Section
+def marvel_section():
+
+   sl.markdown('''
+
+   <h1 class="title">
+      Marvelous Performance
+   </h1>
+
+   <br>
+
+   <p class="describe">
+      Better accuracy and less time cost of Ai Searching
+   </p>
+
+   <br>
+               
+   <style>
+
+   .title {
+      text-align: center;
+   }
+   .describe {
+      text-align: center;
+      color: grey;
+   }
+
+   </style>
+
+   ''', unsafe_allow_html=True)
+
+   sl.header('Accuracy 2x Compared to the Other App')
+   sl.markdown('<br>', unsafe_allow_html=True)
+   sl.image('home_page_material/accuracy_alpha.png')
+
+   sl.header('Time Cost 1/4 Compared to the Other App')
+   sl.markdown('<br>', unsafe_allow_html=True)
+   sl.image('home_page_material/time_cost_alpha.png')
+
+
 # Help Section
 def help_section_title():
 
    sl.markdown('''
-
-   <br>
 
    <h1 class="title">
       Easier than Easier to Use
@@ -206,8 +214,6 @@ def help_section_2():
    with column[0]:
       sl.title('Upload One Old Photo')
       sl.write('System can analyze which part of photos belong to you automatically by the marvelous CLIP deep learning model.')
-      # sl.caption('System can analyze which part of photos belong to you automatically by the CLIP deep learning model.')
-
 
    with column[1]:
       sl.image('home_page_material/upload.png')
@@ -241,6 +247,8 @@ def information():
       sl.caption('Gallery of photos')
       sl.caption('AI searching')
       sl.caption('Download')
+      sl.caption('Help')
+      sl.caption('About us')
       
    with column[2]:
       sl.subheader('TECH')
@@ -248,13 +256,15 @@ def information():
       sl.caption('Python 3')
       sl.caption('My SQL')
       sl.caption('CLIP model')
+      sl.caption('Multiprocess')
+      sl.caption('Keynote')
    
    with column[3]:
       sl.subheader('TEAM')
-      sl.caption('ZXB · project manager')
-      sl.caption('GZY · product manager')
-      sl.caption('CZR · technical manager')
-      sl.caption('ZWH · test manager')
+      sl.caption('Alex Zhao')
+      sl.caption('Zhengyi Guo')
+      sl.caption('Zirui Chen')
+      sl.caption('Wenhao Zhang')
 
    with column[4]:
       sl.subheader('SOCIAL')
@@ -263,6 +273,7 @@ def information():
       sl.caption('Easthome')
       sl.caption('滑呗')
       sl.caption('GOSKI')
+      sl.caption('Open AI')
    
 
 def bottom_section():
@@ -271,10 +282,9 @@ def bottom_section():
 
    column = sl.columns([3, 2, 3])
    with column[1]:
-      logo_path = 'home_page_material/skiing_time_logo.png'
+      logo_path = 'home_page_material/skiing_time_logo_2.png'
       sl.image(logo_path)
 
-   # sl.text('a web app for AI searching')
    sl.markdown('''
 
    <p class="bottom">
@@ -284,7 +294,6 @@ def bottom_section():
       March 2024, Peking City
    </p>
       
-
    <br>
                
    <style>
@@ -306,14 +315,16 @@ def bottom_section():
 def home_page():
 
    page_name = 'Home · Skiing Time'
-   sl.set_page_config(page_name)
+   page_icon = '❄️'
+   sl.set_page_config(page_name, page_icon)
 
    top_section()
-
+   
    title_section()
-   # goto_use_section()
    demonstration_section()
+   sl.markdown('---')
 
+   marvel_section()
    sl.markdown('---')
 
    help_section_title()
