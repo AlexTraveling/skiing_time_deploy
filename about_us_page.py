@@ -61,7 +61,7 @@ def team_section():
 
    sl.title('Who We Are')
    sl.write('We are the Skiing Time team majoring in Computer Science from China Agricultural University, dedicated to the majority of ski enthusiasts to provide more convenient image search function.')
-   sl.image('about_us_page_material/who_we_are.png')
+   sl.image('about_us_page_material/who_we_are_3.png')
 
 
 # Member section
@@ -99,7 +99,7 @@ def member_section():
    member('Zirui Chen', 'Technological Manager', work_list, 'czr')
 
    work_list = ['Software testing', 'Label of data for deep learning model']
-   member('Wenhao Zhang', 'Project Manager', work_list, 'zwh')
+   member('Wenhao Zhang', 'Test Manager', work_list, 'zwh')
 
 
 # Technology section
@@ -163,18 +163,20 @@ def technology_section():
 # About Us page
 def about_us_page():
 
-   # top_section()
+   page_name = 'About us · Skiing Time'
+   page_icon = '❄️'
+   sl.set_page_config(page_name, page_icon)
 
    title_section()
-   # new_title_section()
    sl.markdown('---')
+
    team_section()
    sl.markdown('---')
+
    member_section()
    sl.markdown('---')
-   technology_section()
 
-   # bottom_section()
+   technology_section()
 
 
 if __name__ == '__main__':
