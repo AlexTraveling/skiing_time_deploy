@@ -29,43 +29,35 @@ def sidebar_section(username):
 
    # Goto AI Searching button
    sl.sidebar.header('Find my photos')
-   # if_goto_next = sl.sidebar.button('Go AI Searching')
+   if_goto_next = sl.sidebar.button('Go AI Searching')
    
    # if if_goto_next:
-
    #    information = f'{username}∆{date}∆{resort}'
-
    #    subprocess.Popen(["streamlit", 
    #                      "run", 
    #                      "upload_page.py", 
    #                      "information", 
    #                      f"{information}"])
    
-   # sl.sidebar.markdown('<br><br>', unsafe_allow_html=True)
+   sl.sidebar.markdown('<br><br>', unsafe_allow_html=True)
    
    # Goto Help Page button
-   # sl.sidebar.header('How to use')
-   # if_goto_help_page = sl.sidebar.button('Help')
+   sl.sidebar.header('How to use')
+   if_goto_help_page = sl.sidebar.button('Help')
 
    # if if_goto_help_page:
-
    #    information = f'nothing'
-
    #    subprocess.Popen(["streamlit", 
    #                      "run", 
    #                      "help_page.py", 
    #                      "information", 
    #                      f"{information}"])
-   
-
 
    # Goto About Us button
-   # if_goto_about_us_page = sl.sidebar.button('About Us')
+   if_goto_about_us_page = sl.sidebar.button('About Us')
 
    # if if_goto_about_us_page:
-
    #    information = f'nothing'
-
    #    subprocess.Popen(["streamlit", 
    #                      "run", 
    #                      "about_us_page.py", 
@@ -123,8 +115,6 @@ def select_section(date, resort, full_list):
 
    # if use MySQL as database
    # image_catalog_list = select_image_catalog(date, resort_short_name, only_id=True)
-
-   # image_catalog_list = [1, 2, 3]
 
    # if use Excel as database
    image_catalog_list = []
@@ -213,7 +203,8 @@ def show_section(image_catalog_list):
 def gallery_page():
 
    page_name = 'Gallery · Skiing Time'
-   sl.set_page_config(page_name)
+   page_icon = '❄️'
+   sl.set_page_config(page_name, page_icon)
 
    # username = user_information_section()
    username = 'unknown'
