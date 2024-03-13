@@ -1,8 +1,6 @@
 import streamlit as sl
 import time
-# import subprocess
 import openpyxl
-# import webbrowser
 
 # if use MySQL as database
 # from userDatabase import get_user
@@ -27,11 +25,6 @@ def get_user_from_excel():
 
 
 def user_account(username, password):
-
-   # use local python file as database
-   # save = [('Alex', '123456'),
-   #         ('Bob', 'iambob'),
-   #         ('Swing', 'swing')]
 
    # use MySQL as database
    # save = get_user()
@@ -107,13 +100,11 @@ def goto_sign_up_section():
 def login_page():
 
    page_name = 'Log in · Skiing Time'
-   sl.set_page_config(page_name)
+   page_icon = '❄️'
+   sl.set_page_config(page_name, page_icon)
 
    title_section()
    if_goto_gallery_page, username = login_section()
-   
-   # if if_goto_gallery_page == True:
-   #    goto_gallery_page_section()
 
    goto_sign_up_section()
       
