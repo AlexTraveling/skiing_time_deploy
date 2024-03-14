@@ -83,18 +83,10 @@ def login_section():
 # Go to Sign up Section
 def goto_sign_up_section():
 
-   sl.markdown('''
-   <style>
-   .st-emotion-cache-1umgz6k.ef3psqc12 {
-      border-color: transparent;
-      color: gray;
-   }
-   </style>''', unsafe_allow_html=True)
-
-   col1, col2, col3 = sl.columns([1, 2, 1])
-   with col2:
-      sign_up_button = sl.button('Do not have a account ?  Sign up now', use_container_width=100)
-
+   sl.markdown('<br>', unsafe_allow_html=True)
+   sign_up_page_url = 'https://skiing-time-sign-up.streamlit.app/'
+   sl.markdown(f'Do not have a account ? [Sign up now]({sign_up_page_url})')
+   
 
 # Log in Page
 def login_page():
