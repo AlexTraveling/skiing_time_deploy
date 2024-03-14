@@ -29,7 +29,9 @@ def sidebar_section(username):
 
    # Goto AI Searching button
    sl.sidebar.header('Find my photos')
-   if_goto_next = sl.sidebar.button('Go AI Searching')
+   # if_goto_next = sl.sidebar.button('Go AI Searching')
+   ai_search_page_url = 'https://skiing-time-ai-search.streamlit.app/' 
+   sl.sidebar.markdown(f'[AI Search]({ai_search_page_url})')
    
    # if if_goto_next:
    #    information = f'{username}∆{date}∆{resort}'
@@ -43,7 +45,9 @@ def sidebar_section(username):
    
    # Goto Help Page button
    sl.sidebar.header('How to use')
-   if_goto_help_page = sl.sidebar.button('Help')
+   # if_goto_help_page = sl.sidebar.button('Help')
+   help_page_url = 'https://skiing-time-assist.streamlit.app/' 
+   sl.sidebar.markdown(f'[Help]({help_page_url})')
 
    # if if_goto_help_page:
    #    information = f'nothing'
@@ -54,8 +58,10 @@ def sidebar_section(username):
    #                      f"{information}"])
 
    # Goto About Us button
-   if_goto_about_us_page = sl.sidebar.button('About Us')
-
+   # if_goto_about_us_page = sl.sidebar.button('About Us')
+   about_us_page_url = 'https://skiing-time-about-us.streamlit.app/'
+   sl.sidebar.markdown(f'[About us]({about_us_page_url})')
+   
    # if if_goto_about_us_page:
    #    information = f'nothing'
    #    subprocess.Popen(["streamlit", 
@@ -196,8 +202,6 @@ def show_section(image_catalog_list):
          column += 1
          if column == 4:
             column = 1
-
-   pass
 
 
 def gallery_page():
